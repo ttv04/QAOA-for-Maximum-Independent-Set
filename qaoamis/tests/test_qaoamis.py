@@ -7,9 +7,11 @@ import sys
 
 import pytest
 
-import qaoamis
+from ..qaoamis import *
 
 
 def test_qaoamis_imported():
     """Sample test, will always pass so long as import statement worked."""
     assert "qaoamis" in sys.modules
+
+mis = QAOAMIS()
