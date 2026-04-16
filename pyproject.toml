@@ -29,10 +29,14 @@ dependencies = [
     "scipy"
 ]
 
+- name: Install dependencies
+  run: |
+    pip install numpy pytest pytest-cov
+
 # Update the urls once the hosting is set up.
-#[project.urls]
-#"Source" = "https://github.com/<username>/qaoamis/"
-#"Documentation" = "https://qaoamis.readthedocs.io/"
+# [project.urls]
+# "Source" = "https://github.com/ttv04/qaoamis/"
+# "Documentation" = "https://qaoamis.readthedocs.io/"
 
 [project.optional-dependencies]
 test = [
