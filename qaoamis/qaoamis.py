@@ -41,7 +41,7 @@ class QAOAMIS:
     def expected_energy(self, configuration):
         '''Calculate the expected energy of a given configuration.'''
         if self.Q is None:
-            self.buildQUBO()
+            raise ValueError("QUBO matrix not built. Please call buildQUBO() before expected_energy().")
         
         return (configuration.T @ self.Q @ configuration).item()
     
@@ -93,7 +93,7 @@ class QAOAMIS:
         if penalty is None:
             penalty = self.n
 
-        Q = np.matrix([[0] * self.n] * self.n)
+        Q = np.zeros((self.n, self.n))
 
         for i in range(self.n):
             Q[i, i] = -1
