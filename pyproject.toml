@@ -41,10 +41,6 @@ test = [
   "pytest-cov"
 ]
 
-- name: Install package
-  run: |
-    pip install .[test]
-
 [tool.setuptools]
 # This subkey is a beta stage development and keys may change in the future, see https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html for more details
 #
