@@ -106,6 +106,10 @@ class QAOAMIS:
     
     def buildCostHamiltonian(self, penalty=None):
         '''Build the cost Hamiltonian for the maximum independent set problem.'''
+        
+        if self.graph.num_nodes() == 0:
+            raise ValueError("Graph has no nodes. Please add at least a node before building the cost Hamiltonian.")
+
         if penalty is None:
             penalty = self.n
 
@@ -124,7 +128,7 @@ class QAOAMIS:
 
         self.H_C = SparsePauliOp.from_sparse_list(pauli_list, self.n)
 
-    def buildQAOAAnsatz(self, layers: int, draw_circuit=False):
+    def buildQAOAAnsatz(self, layers: int = 1, draw_circuit=False):
         if self.H_C is None:
             raise ValueError("Cost Hamiltonian not built. Please call buildCostHamiltonian() before buildQAOAAnsatz().")
         self.QAOAAnsatz = QAOAAnsatz(cost_operator=self.H_C, reps=layers)

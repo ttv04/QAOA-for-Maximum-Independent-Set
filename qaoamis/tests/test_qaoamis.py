@@ -9,6 +9,7 @@ import pytest
 
 import qaoamis
 
+mis = qaoamis.QAOAMIS()
 
 def test_qaoamis_imported():
     """Sample test, will always pass so long as import statement worked."""
@@ -16,5 +17,20 @@ def test_qaoamis_imported():
 
 def test_qaoamis_class():
     """Test the QAOAMIS class."""
-    mis = qaoamis.QAOAMIS()
     assert isinstance(mis, qaoamis.QAOAMIS)
+
+def test_exceptions():
+    """Test that exceptions are raised when expected."""
+    with pytest.raises(ValueError):
+        mis.mis_brute_force()
+    with pytest.raises(ValueError):
+        mis.buildCostHamiltonian()
+    with pytest.raises(ValueError):
+        mis.buildQAOAAnsatz()
+    with pytest.raises(ValueError):
+        mis.buildQUBO()
+    with pytest.raises(ValueError):
+        mis.buildCostHamiltonian()
+    with pytest.raises(ValueError):
+        mis.find_optimal_parameters()
+
