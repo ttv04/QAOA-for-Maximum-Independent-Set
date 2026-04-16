@@ -99,7 +99,7 @@ class QAOAMIS:
             Q[i, i] = -1
 
         for i, j in self.graph.edge_list():
-            Q[i, j] = Q[j, i] = penalty
+            Q[i, j] = Q[j, i] = penalty / 2
         
         self.Q = Q
         return Q
@@ -144,7 +144,7 @@ class QAOAMIS:
         init_beta = [np.pi / 2] * (self.QAOAAnsatz.reps)
 
         result = minimize(self._objective, x0=init_beta + init_gamma, method='COBYLA')
-        return (result.x[self.QAOAAnsatz.reps:], result.x[:self.QAOAAnsatz.reps])
+        return (result.x[:self.QAOAAnsatz.reps], result.x[self.QAOAAnsatz.reps:])
 
     def qaoa_evaluate(self, beta: list[float], gamma: list[float], shots = 1024, print_count=False):
         '''Evaluate the QAOA simulation circuit for the given parameters.'''
