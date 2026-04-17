@@ -52,3 +52,12 @@ def test_brute_force_solution():
     mis.buildQUBO()
     with patch.object(plt, "show"):
         mis.mis_brute_force(show_graph=True, print_expected_energy_bar=True)
+
+def test_qaoa_solution():
+    mis.buildCostHamiltonian()
+    with patch.object(plt, "show"):
+        mis.buildQAOAAnsatz(layers=2, draw_circuit=True)
+
+    beta, gamma = mis.find_optimal_parameters()
+    with patch.object(plt, "show"):
+        mis.qaoa_evaluate(beta, gamma, 2 ** 16, print_count=True)

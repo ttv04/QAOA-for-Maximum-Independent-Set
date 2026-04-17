@@ -134,7 +134,7 @@ class QAOAMIS:
         self.QAOAAnsatz = QAOAAnsatz(cost_operator=self.H_C, reps=layers)
 
         if draw_circuit:
-            self.QAOAAnsatz.draw("mpl")
+            self.QAOAAnsatz.draw(output="mpl", interactive=True)
 
         return self.QAOAAnsatz
 
@@ -186,8 +186,6 @@ class QAOAMIS:
 
         if hightlight_sol:
             colors = [highest_energy_color if val == max_val else default_color for val in y]
-        else:
-            colors = [default_color] * len(x) 
 
         plt.figure(figsize=(12, 6))  # keep normal size
         plt.bar(x, y, color=colors)
