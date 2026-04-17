@@ -6,6 +6,8 @@ Unit and regression test for the qaoamis package.
 import sys
 
 import pytest
+from unittest.mock import patch
+from matplotlib import pyplot as plt
 
 import qaoamis
 
@@ -48,4 +50,5 @@ def test_add_nodes_and_edges():
 def test_brute_force_solution():
     """Test the brute-force solution to the maximum independent set problem."""
     mis.buildQUBO()
-    mis.mis_brute_force(show_graph=True, print_expected_energy_bar=True)
+    with patch.object(plt, "show"):
+        mis.mis_brute_force(show_graph=True, print_expected_energy_bar=True)
