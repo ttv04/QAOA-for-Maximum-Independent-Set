@@ -61,3 +61,7 @@ def test_qaoa_solution():
     beta, gamma = mis.find_optimal_parameters()
     with patch.object(plt, "show"):
         mis.qaoa_evaluate(beta, gamma, 2 ** 16, print_count=True)
+
+def test_misc():
+    with patch.object(plt, "show"):
+        mis.visualize()
