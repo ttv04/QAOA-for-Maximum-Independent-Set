@@ -39,6 +39,8 @@ def test_exceptions():
         mis_error.find_optimal_parameters()
     with pytest.raises(ValueError):
         mis_error.expected_energy([0, 1, 0, 1])
+    with pytest.raises(ValueError):
+        mis_error.qaoa_evaluate([], [])
 
 def test_add_nodes_and_edges():
     """Test adding nodes and edges to the graph."""

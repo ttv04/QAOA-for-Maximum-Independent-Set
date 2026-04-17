@@ -171,8 +171,6 @@ class QAOAMIS:
 
 
     def _objective(self, params):
-        if self.QAOAAnsatz is None:
-            raise ValueError("QAOA Ansatz not built. Please call buildQAOAAnsatz()")
         param_dict = {self.QAOAAnsatz.parameters[i].name: params[i] for i in range(len(self.QAOAAnsatz.parameters))}
         circuit_bound = self.QAOAAnsatz.assign_parameters(param_dict)
         psi = Statevector(circuit_bound)
