@@ -26,7 +26,8 @@ dependencies = [
     "rustworkx",
     "matplotlib",
     "qiskit",
-    "numpy"
+    "numpy",
+    "pylatexenc"
 ]
 
 # Update the urls once the hosting is set up.
