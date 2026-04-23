@@ -1,0 +1,12 @@
+body {
+    font-family: sans-serif;
+}
+
+/* Apply emoji font ONLY when needed */
+span, p, li, td {
+    font-family:
+        "Segoe UI Emoji",
+        "Apple Color Emoji",
+        "Noto Color Emoji",
+        sans-serif;
+}

@@ -27,6 +27,7 @@ dependencies = [
     "matplotlib",
     "qiskit",
     "numpy",
+    "scipy",
     "pylatexenc"
 ]
 

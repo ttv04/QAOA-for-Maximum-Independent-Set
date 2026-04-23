@@ -4,7 +4,12 @@
    contain the root `toctree` directive.
 
 Welcome to QAOA for Maximum Independent Set's documentation!
-=========================================================
+=============================================================
+
+This module provide an interface for the user to experiment maximum independent set problem with quantum
+approximate optimization algorithm. The package provide an structure that could create a simple undirected graph, 
+functions that could solve the problem using brute-force method, visualization of the graph in plain and solution, 
+and of course a QAOA method to solve it.
 
 .. grid:: 1 1 2 2
 
